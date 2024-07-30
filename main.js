@@ -13,16 +13,25 @@ let btnSave = document.createElement('button')
 btnSave.textContent = 'Сохранить'
 btnSave.classList.add ('btn')
 
+// Создание блока формы отзыва
+let blockForm = document.createElement('div')
+
+// Создание формы описания отзыва
+let formDesc = document.createElement('textarea')
+
+// Создание формы имени пользователя
+let formUser = document.createElement('input')
 
 // Функция создания формы отзыва
 let getForm = function () {
-    let blockForm = document.createElement('div')
+    
     blockForm.classList.add('block__form')
 
-    let formDesc = document.createElement('textarea')
+   
     formDesc.classList.add('form__style')
+    formDesc.placeholder = 'текст вашего отзыва'
 
-    let formUser = document.createElement('input')
+    
     formUser.type = 'text'
     formUser.placeholder = 'Ваше имя'
     formUser.classList.add ('form__style')
@@ -33,12 +42,26 @@ let getForm = function () {
 
 }
 
-
+// Вызов формы отзыва по клику
 getFormFeedback.addEventListener('click', function () {
     feedbackCards.classList.replace('feedback__cards', 'block-close')
     getFormFeedback.classList.replace('btn', 'block-close')
 })
 
 getFormFeedback.addEventListener('click', getForm)
+
+// Создание новой карточки отзыва
+let newCardFeedback = document.createElement('div')
+newCardFeedback.classList.add ('feedback__card')
+
+// Сохранение созданного отзыва
+btnSave.addEventListener('click', function(){
+    feedbackCards.classList.replace('block-close','feedback__cards')
+    getFormFeedback.classList.replace('block-close','btn') 
+    blockForm.classList.replace('block__form','block-close')
+
+    feedbackCards.append(newCardFeedback)
+})
+
 
 feedbackContainer.append(getFormFeedback)
