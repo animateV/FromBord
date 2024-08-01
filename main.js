@@ -1,7 +1,7 @@
 
 let feedbackContainer = document.querySelector('.feedback__container')
 let feedbackCards = document.querySelector('.feedback__cards')
-
+let arrCard = [12]
 
 // Создание кнопки добавить отзыв
 let getFormFeedback = document.createElement('button')
